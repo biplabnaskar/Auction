@@ -1,0 +1,30 @@
+.custom-navbar {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue gradient background */
+}
+ 
+
+.custom-navbar .nav-link {
+  font-size: 1.1rem;
+  margin-right: 20px; /* Slightly increased margin for more space */
+  color: #ffffff !important;
+  font-weight: 500; /* Lighter weight for the nav links */
+}
+
+.custom-navbar .nav-link:hover {
+  color: #f8d7da !important; /* Light pink hover effect */
+  text-decoration: underline; /* Underline effect on hover for clarity */
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 1.6rem; /* Adjusted to match icon size */
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-navbar .navbar-brand svg {
+  font-size: 1.8rem; /* Slightly adjust icon size */
+}

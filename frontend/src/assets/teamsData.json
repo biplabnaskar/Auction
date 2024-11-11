@@ -1,0 +1,44 @@
+{
+  "teams": [
+    {
+      "teamName": "Team A",
+      "players": [
+        { "id": 1, "name": "Alice", "points": 10, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 2, "name": "Bob", "points": 15, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 3, "name": "Charlie", "points": 8, "imageUrl": "https://via.placeholder.com/50" }
+      ]
+    },
+    {
+      "teamName": "Team B",
+      "players": [
+        { "id": 4, "name": "David", "points": 12, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 5, "name": "Eve", "points": 18, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 6, "name": "Frank", "points": 10, "imageUrl": "https://via.placeholder.com/50" }
+      ]
+    },
+    {
+      "teamName": "Team C",
+      "players": [
+        { "id": 7, "name": "Grace", "points": 20, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 8, "name": "Hank", "points": 7, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 9, "name": "Ivy", "points": 15, "imageUrl": "https://via.placeholder.com/50" }
+      ]
+    },
+    {
+      "teamName": "Team D",
+      "players": [
+        { "id": 10, "name": "Jack", "points": 9, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 11, "name": "Kathy", "points": 17, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 12, "name": "Liam", "points": 14, "imageUrl": "https://via.placeholder.com/50" }
+      ]
+    },
+    {
+      "teamName": "Team E",
+      "players": [
+        { "id": 13, "name": "Mona", "points": 16, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 14, "name": "Nate", "points": 11, "imageUrl": "https://via.placeholder.com/50" },
+        { "id": 15, "name": "Olivia", "points": 19, "imageUrl": "https://via.placeholder.com/50" }
+      ]
+    }
+  ]
+}

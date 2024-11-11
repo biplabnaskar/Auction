@@ -1,0 +1,99 @@
+.teamtables {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.teamtable {
+  margin-bottom: 20px;
+  border: 2px solid #333;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.teamtable:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.teamtable h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.teamtable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.teamtable th, .teamtable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.teamtable th {
+  background-color: #dceefb; /* Light blue */
+  font-weight: bold;
+  color: #1d4e89; /* Deep blue for readability */
+}
+
+.teamtable td {
+  background-color: #f0f8ff; /* Very light blue for a soft contrast */
+}
+.teamtable img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .teamtable {
+    padding: 15px;
+  }
+  
+  .teamtable h2 {
+    font-size: 1.3em;
+  }
+  
+  .teamtable table {
+    font-size: 0.9em;
+  }
+  
+  .teamtable th, .teamtable td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamtable {
+    padding: 10px;
+  }
+  
+  .teamtable h2 {
+    font-size: 1.2em;
+  }
+  
+  .teamtable table {
+    font-size: 0.85em;
+  }
+  
+  .teamtable th, .teamtable td {
+    padding: 6px;
+  }
+
+  .teamtable img {
+    width: 40px;
+    height: 40px;
+  }
+}
