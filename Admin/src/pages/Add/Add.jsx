@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Add = () => {
-  const url = "https://auction-2671.onrender.com";
+  const url = "https://auction-backend-72z9.onrender.com";
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
