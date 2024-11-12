@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const colors = ["#80ffe5", "#ff6699", "#ffff00", "#9966ff", "#b3ff66"];
 
 const TeamTable = () => {
-  const url = "https://auction-2671.onrender.com"; // Base URL for your API
+  const url = "https://auction-backend-72z9.onrender.com"; // Base URL for your API
   const [teamsData, setTeamsData] = useState([]);
 
   // Fetch the list of players and group them by team
