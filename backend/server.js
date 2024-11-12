@@ -2,7 +2,6 @@ import express from "express"
 import cors from "cors"
 import { connectDB } from "./config/db.js";
 import playerRouter from "./routes/playerRoute.js";
-import path from "path";
  
 
 
@@ -22,8 +21,7 @@ connectDB();
 
 //api endpoints
 app.use("/api/player",playerRouter)
-app.use("/images", express.static(path.join(__dirname, "uploads")));
-
+app.use("/images",express.static('uploads'))
 
 app.get("/",(req,res)=>{
     res.send("API working")
