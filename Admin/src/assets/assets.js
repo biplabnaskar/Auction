@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'https://foodify-backend-wws4.onrender.com'
+export const url = 'https://auction-2671.onrender.com'
