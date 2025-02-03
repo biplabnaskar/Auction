@@ -81,7 +81,7 @@ const TeamTable = () => {
                   alt={`${team.teamName} Logo`}
                   className="team-logo-img"
                 />
-                <h2>{team.teamName}</h2>
+                <h2 className="team-title">{team.teamName}</h2>
               </div>
 
               <table>
