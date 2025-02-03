@@ -57,6 +57,46 @@
   object-fit: cover;
 }
 
+.logo-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+ 
+
+.league-title {
+  font-size: 42px;
+  font-weight: bold;
+  background: linear-gradient(to right, blue, red, green, yellow); /* Gradient color */
+  -webkit-background-clip: text; /* Clip background to text */
+  color: transparent; /* Make text color transparent to show gradient */
+  margin-bottom: 10px;
+}
+.team-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the content horizontally */
+}
+
+.team-logo-img {
+  width: 60px; /* Adjust the size of the logo */
+  height: 60px;
+  margin: 15px; /* Adjust space between logo and team name */
+}
+
+.teamtable {
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.tournament-logo {
+  width: 300px; /* Adjust as per your design */
+}
+
+
+
+
 @media (max-width: 768px) {
   .teamtable {
     padding: 15px;
