@@ -22,7 +22,7 @@ const teamColors = {
   "Thala Warriors": "#ffc107",
   "Tanupukur Knight Riders": "#9c45c7",
   "Ele Belle": "#0073e6",
-  "Gladiator's": "#3db9ca",
+  "Gladiator's": "#ad2424",
   "Bubul 7": "#FFFF00",
 };
 
