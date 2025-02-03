@@ -35,6 +35,10 @@
   font-size: 0.95em;
 }
 
+.team-title{
+  margin-top: 10px;
+}
+
 .teamtable th, .teamtable td {
   border: 1px solid #ddd;
   padding: 10px;
