@@ -6,7 +6,7 @@ import TeamTable from "./components/TeamTable/TeamTable";
 const App = () => {
   return (
     <div className="app">
-      <CustomNavbar />
+{/*       <CustomNavbar /> */}
       <TeamTable />
     </div>
   );
