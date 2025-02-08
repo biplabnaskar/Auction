@@ -2,28 +2,65 @@ import React, { useEffect, useState } from "react";
 import "./TeamTable.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import teamLogo from "../../assets/team-logo.png"; // Adjust path as needed
+import teamLogo from "../../assets/team-logo.png";
 import thalapng from "../../assets/thala.png";
 import TNR from "../../assets/TNR.jpeg";
 import Gladiator from "../../assets/gladiator.png";
-import elebelle from "../../assets/elebelle.png";
-import bubul7 from "../../assets/bubul7.jpeg";
+import elebelle from "../../assets/Elebellepic2.png";
+import bubul7 from "../../assets/Bubulmin.png";
+import Babuda from "../../assets/Babuda.jpeg";
+import Aritra from "../../assets/Aritra.jpeg";
+import Bubulda from "../../assets/BubulDa.jpeg";
+import Arnabda from "../../assets/ArnabDa.jpeg";
+import Biplab from "../../assets/Biplab.jpg";
 
-// Add team logos along with their colors
 const teamLogos = {
-  "Thala Warriors": thalapng, // Replace with actual path
-  "Tanupukur Knight Riders": TNR, // Replace with actual path
-  "Ele Belle": elebelle, // Replace with actual path
-  "Gladiator's": Gladiator, // Replace with actual path
-  "Bubul 7": bubul7, // Replace with actual path
+  "Thala Warriors": thalapng,
+  "Tanupukur Knight Riders": TNR,
+  "Ele Belle": elebelle,
+  "Gladiator's": Gladiator,
+  "Bubul 7": bubul7,
 };
 
 const teamColors = {
   "Thala Warriors": "#ffc107",
   "Tanupukur Knight Riders": "#9c45c7",
   "Ele Belle": "#0073e6",
-  "Gladiator's": "#ad2424",
+  "Gladiator's": "#3db9ca",
   "Bubul 7": "#FFFF00",
+};
+
+const marqueePlayers = {
+  "Thala Warriors": {
+    name: "Biplab Naskar",
+    category: "Marquee",
+    image: Biplab,
+    points: 100,
+  },
+  "Tanupukur Knight Riders": {
+    name: "Mriganka Mouli Mukherjee ",
+    category: "Marquee",
+    image: Babuda,
+    points: 100,
+  },
+  "Ele Belle": {
+    name: "Avishek Karmakar ",
+    category: "Marquee",
+    image: Bubulda,
+    points: 100,
+  },
+  "Gladiator's": {
+    name: "Aritra Gupta",
+    category: "Marquee",
+    image: Aritra,
+    points: 100,
+  },
+  "Bubul 7": {
+    name: "Arnab Mitra ",
+    category: "Marquee",
+    image: Arnabda,
+    points: 100,
+  },
 };
 
 const TeamTable = () => {
@@ -37,12 +74,11 @@ const TeamTable = () => {
         const teams = response.data.data.reduce((acc, player) => {
           const teamName = player.team;
           if (!acc[teamName]) {
-            acc[teamName] = { teamName, players: [] };
+            acc[teamName] = { teamName, players: [marqueePlayers[teamName]] };
           }
           acc[teamName].players.push(player);
           return acc;
         }, {});
-
         setTeamsData(Object.values(teams));
       } else {
         toast.error("Error fetching team data");
@@ -58,7 +94,6 @@ const TeamTable = () => {
 
   return (
     <div className="teamtable-container">
-      {/* Large Logo */}
       <div className="logo-container">
         <img src={teamLogo} alt="Tournament Logo" className="tournament-logo" />
         <h1 className="league-title">Tanupukur Big Bash League</h1>
@@ -75,9 +110,8 @@ const TeamTable = () => {
               }}
             >
               <div className="team-header">
-                {/* Display the team logo */}
                 <img
-                  src={teamLogos[team.teamName] || teamLogo} // Default logo if not found
+                  src={teamLogos[team.teamName] || teamLogo}
                   alt={`${team.teamName} Logo`}
                   className="team-logo-img"
                 />
@@ -96,11 +130,11 @@ const TeamTable = () => {
                 </thead>
                 <tbody>
                   {team.players.map((player, index) => (
-                    <tr key={player._id}>
+                    <tr key={index}>
                       <td>{index + 1}</td>
                       <td>
                         <img
-                          src={`${url}/images/${player.image}`}
+                          src={player.image || `${url}/images/${player.image}`}
                           alt={player.name}
                         />
                       </td>
@@ -120,7 +154,7 @@ const TeamTable = () => {
                   </tr>
                   <tr>
                     <td colSpan="4">
-                      <b> Remaining Points</b>
+                      <b>Remaining Points</b>
                     </td>
                     <td>
                       <b>
