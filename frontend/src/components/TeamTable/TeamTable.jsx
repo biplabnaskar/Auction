@@ -3,6 +3,8 @@ import "./TeamTable.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import teamLogo from "../../assets/team-logo.png";
+
+// Importing team and player images
 import thalapng from "../../assets/thala.png";
 import TNR from "../../assets/TNR.jpeg";
 import Gladiator from "../../assets/gladiator.png";
@@ -14,6 +16,7 @@ import Bubulda from "../../assets/BubulDa.jpeg";
 import Arnabda from "../../assets/ArnabDa.jpeg";
 import Biplab from "../../assets/Biplab.jpg";
 
+// Define team logos and colors
 const teamLogos = {
   "Thala Warriors": thalapng,
   "Tanupukur Knight Riders": TNR,
@@ -30,6 +33,7 @@ const teamColors = {
   "Bubul 7": "#FFFF00",
 };
 
+// Define marquee players
 const marqueePlayers = {
   "Thala Warriors": {
     name: "Biplab Naskar",
@@ -38,13 +42,13 @@ const marqueePlayers = {
     points: 100,
   },
   "Tanupukur Knight Riders": {
-    name: "Mriganka Mouli Mukherjee ",
+    name: "Mriganka Mouli Mukherjee",
     category: "Marquee",
     image: Babuda,
     points: 100,
   },
   "Ele Belle": {
-    name: "Avishek Karmakar ",
+    name: "Avishek Karmakar",
     category: "Marquee",
     image: Bubulda,
     points: 100,
@@ -56,7 +60,7 @@ const marqueePlayers = {
     points: 100,
   },
   "Bubul 7": {
-    name: "Arnab Mitra ",
+    name: "Arnab Mitra",
     category: "Marquee",
     image: Arnabda,
     points: 100,
@@ -64,7 +68,7 @@ const marqueePlayers = {
 };
 
 const TeamTable = () => {
-  const url = "https://auction-backend-72z9.onrender.com";
+  const url = "https://auction-backend-72z9.onrender.com"; // Backend URL
   const [teamsData, setTeamsData] = useState([]);
 
   const fetchTeamsData = async () => {
@@ -73,12 +77,31 @@ const TeamTable = () => {
       if (response.data.success) {
         const teams = response.data.data.reduce((acc, player) => {
           const teamName = player.team;
+
+          // Initialize team if not present
           if (!acc[teamName]) {
-            acc[teamName] = { teamName, players: [marqueePlayers[teamName]] };
+            acc[teamName] = {
+              teamName,
+              players: [
+                {
+                  ...marqueePlayers[teamName],
+                  image: marqueePlayers[teamName].image, // Ensure marquee player image is assigned
+                },
+              ],
+            };
           }
-          acc[teamName].players.push(player);
+
+          // Add players from API response
+          acc[teamName].players.push({
+            ...player,
+            image: player.image?.startsWith("http")
+              ? player.image
+              : `${url}/images/${player.image}`, // Ensure player image loads correctly
+          });
+
           return acc;
         }, {});
+
         setTeamsData(Object.values(teams));
       } else {
         toast.error("Error fetching team data");
@@ -94,11 +117,13 @@ const TeamTable = () => {
 
   return (
     <div className="teamtable-container">
+      {/* League Header */}
       <div className="logo-container">
         <img src={teamLogo} alt="Tournament Logo" className="tournament-logo" />
         <h1 className="league-title">Tanupukur Big Bash League</h1>
       </div>
 
+      {/* Teams Data Table */}
       <div className="teamtables">
         {teamsData.length > 0 ? (
           teamsData.map((team, teamIndex) => (
@@ -109,6 +134,7 @@ const TeamTable = () => {
                 backgroundColor: teamColors[team.teamName] || "#cccccc",
               }}
             >
+              {/* Team Header */}
               <div className="team-header">
                 <img
                   src={teamLogos[team.teamName] || teamLogo}
@@ -118,6 +144,7 @@ const TeamTable = () => {
                 <h2 className="team-title">{team.teamName}</h2>
               </div>
 
+              {/* Players Table */}
               <table>
                 <thead>
                   <tr>
@@ -134,8 +161,10 @@ const TeamTable = () => {
                       <td>{index + 1}</td>
                       <td>
                         <img
-                          src={player.image || `${url}/images/${player.image}`}
+                          src={player.image}
                           alt={player.name}
+                          onError={(e) => (e.target.src = teamLogo)} // Fallback image
+                          className="player-image"
                         />
                       </td>
                       <td>{player.name}</td>
@@ -143,6 +172,7 @@ const TeamTable = () => {
                       <td>{player.points}</td>
                     </tr>
                   ))}
+                  {/* Total Used Points */}
                   <tr>
                     <td colSpan="4">Total Used Points</td>
                     <td>
@@ -152,6 +182,7 @@ const TeamTable = () => {
                       )}
                     </td>
                   </tr>
+                  {/* Remaining Points */}
                   <tr>
                     <td colSpan="4">
                       <b>Remaining Points</b>
