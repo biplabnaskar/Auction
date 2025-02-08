@@ -189,7 +189,7 @@ const TeamTable = () => {
                     </td>
                     <td>
                       <b>
-                        {4900 -
+                        {5000 -
                           team.players.reduce(
                             (acc, player) => acc + player.points,
                             0
