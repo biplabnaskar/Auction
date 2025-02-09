@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./TeamTable.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaYoutube, FaFacebook } from "react-icons/fa"; // Importing icons
 import teamLogo from "../../assets/team-logo.png";
 
 // Importing team and player images
@@ -121,6 +122,41 @@ const TeamTable = () => {
       <div className="logo-container">
         <img src={teamLogo} alt="Tournament Logo" className="tournament-logo" />
         <h1 className="league-title">Tanupukur Big Bash League</h1>
+        {/* Social Icons */}
+        <div
+          style={{
+            display: "flex",
+            gap: "15px",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <a
+            href="https://www.youtube.com/@TanupukurBigBashLeague"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "red",
+              fontSize: "30px",
+              textDecoration: "none",
+            }}
+          >
+            <FaYoutube />
+          </a>
+          <a
+            href="https://www.facebook.com/TBBLDhakuria"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#1877F2",
+              fontSize: "30px",
+              textDecoration: "none",
+            }}
+          >
+            <FaFacebook />
+          </a>
+        </div>
       </div>
 
       {/* Teams Data Table */}
@@ -138,10 +174,18 @@ const TeamTable = () => {
               <div className="team-header">
                 <img
                   src={teamLogos[team.teamName] || teamLogo}
-                  alt={`${team.teamName} Logo`}
+                  alt={`${
+                    team.teamName === "Gladiator's"
+                      ? "Gladiator"
+                      : team.teamName
+                  } Logo`}
                   className="team-logo-img"
                 />
-                <h2 className="team-title">{team.teamName}</h2>
+                <h2 className="team-title">
+                  {team.teamName === "Gladiator's"
+                    ? "Gladiators"
+                    : team.teamName}
+                </h2>
               </div>
 
               {/* Players Table */}
